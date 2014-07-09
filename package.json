@@ -1,0 +1,16 @@
+{
+  "name": "remotecontrol",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sérgio Rafael Siqueira <sergiorsiqueira9@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.4.3",
+    "jade": "^1.3.1",
+    "socket.io": "^1.0.5"
+  }
+}

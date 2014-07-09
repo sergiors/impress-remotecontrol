@@ -1,0 +1,104 @@
+extend layout
+
+block content
+  div#impress
+    div#first.step(data-x="0",data-y="0", data-scale="3")
+      h1 A evolução da Web
+      p.footnote Sérgio Rafael Siqueira
+      p.footnote Marlon Luciano da Silva
+
+    div.step(data-x="0", data-y="-1500")
+      p A World Wide Web também conhecida como <strong>Web</strong> ou WWW, foi inventada por Tim Berners-Lee.
+      p E em 1991 foi o ano que a web estreou!
+
+    div.step(data-x="1000", data-y="-1500", data-rotate="30")
+      p Onde tinha um navegador, servidor e algumas páginas.
+    div.step(data-x="1500", data-y="-500", data-rotate="60")
+      p Mais tarde veios os navegadores gráficos, como o Mosaic, Netscape, Opera, Internet Explorer...
+    div.step(data-x="1800", data-y="2000")
+      p A evolução da web é separada em três partes.
+      ul
+        li Web 1.0
+        li Web 2.0
+        li Web 3.0
+
+    div#web1.step(data-x="3000", data-y="2000",data-scale="1")
+      h1 Web 1.0
+    div.step(data-x="3500", data-y="2000",)
+      p É passado*
+    div.step(data-x="3500", data-y="2200",)
+      p É estática
+    div.step(data-x="3500", data-y="2400",)
+      p Não pode ser alterado pelo usuário
+    div.step(data-x="3500", data-y="2600",)
+      p Todo conteúdo é somente para leitura
+    div.step(data-x="3500", data-y="2800",)
+      p O usuário apenas consome
+    div.step(data-x="3500", data-y="3000",)
+      p Apenas o programador altera as páginas
+
+    div#web2.step(data-x="3000", data-y="4000",data-scale="1")
+      h1 Web 2.0
+    div.step(data-x="3500", data-y="4000")
+      p É onde estamos
+    div.step(data-x="3500", data-y="4200")
+      p É dinâmica
+    div.step(data-x="3500", data-y="4400")
+      p O usuário não apenas consome, ele também fornece
+    div.step(data-x="3500", data-y="4600")
+      p O usuário produz mais do que consome
+    div.step(data-x="4200", data-y="4800", data-rotate="30")
+      p Like, Share, Tweet, Retweet
+    div.step(data-x="3500", data-y="4800")
+      p As páginas são dinâmicas
+    div.step(data-x="4000", data-y="5700", data-scale="2", data-rotate="90")
+      p Quem altera é o usuário
+      //- p Um usuário cria um post, outro comenta no post, sem precisar de um programador
+
+    div#web3.step(data-x="3000", data-y="6000", data-scale="1")
+      h1 Web 3.0
+    div.step(data-x="3500", data-y="6000")
+      p É o futuro
+    div.step(data-x="3500", data-y="6150")
+      p É um conceito que ainda não virou aplicação
+    div.step(data-x="3500", data-y="6400")
+      p A proposta é uma forma onde não apenas o ser humano entenda os dados, mas também as máquinas
+    div.step(data-x="3500", data-y="6600")
+      p Web semântica
+
+    div#src.step(data-x="0", data-y="2000",data-scale="2")
+      h3 Referências
+      p
+        a(href="http://pt.wikipedia.org/wiki/World_Wide_Web") pt.wikipedia.org/wiki/World_Wide_Web
+      p
+        a(href="http://www.evolutionoftheweb.com") evolutionoftheweb.com
+
+
+    
+    //- div.step(data-x="850", data-y="3000", data-rotate="90", data-scale="5")
+    //-   p It's a <strong>presentation tool</strong> <br/> inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/> and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.
+    //- div.step(data-x="2825", data-y="2325", data-z="-3000", data-rotate="300", data-scale="1")
+    //-   p and <b>tiny</b> ideas
+    //- div.step(data-x="850", data-y="3000", data-rotate="90", data-scale="5")
+    //-     p It's a <strong>presentation tool</strong> <br/>
+    //-     | inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
+    //-     | and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.
+    div.step(data-x="3000", data-y="1500", data-scale="10")
+
+block style
+  //- link(href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic",rel="stylesheet")
+  link(href="/impress.js/css/impress-demo.css",rel="stylesheet")
+  style(type="text/css")
+    | p { padding: 10px 0; }
+    | h1 { font-size: 92px; }
+    | #first .footnote { font-size: 22px; padding: 0;}
+    | #src { font-size: 22px; }
+
+block append script
+  script(src="/socket.io/socket.io.js")
+  script(src="/impress.js/js/impress.js")
+  script
+    | impress().init();
+    | var socket = io();
+    | socket.on("prev", function() { impress().prev() });
+    | socket.on("next", function() { impress().next() });

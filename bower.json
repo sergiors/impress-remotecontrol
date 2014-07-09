@@ -1,0 +1,20 @@
+{
+  "name": "remotecontrol.io",
+  "main": "index.js",
+  "version": "0.0.1",
+  "authors": [
+    "Sérgio Rafael Siqueira <sergiorsiqueira9@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "impress.js": "~0.5.3",
+    "bootstrap": "~3.1.1"
+  }
+}
